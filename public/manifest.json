@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "QuillBot",
+  "name": "QuillBot AI paraphrasing tool prototype",
   "icons": [
     {
       "src": "favicon.ico",

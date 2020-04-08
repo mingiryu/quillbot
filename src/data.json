@@ -1,0 +1,363 @@
+{
+    "original": "One aspect of the present situation, which I wish to present to you at this time for your consideration and decision, concerns Greece and Turkey.",
+    "paraphrases": [
+        {
+            "editdistance": 0.36619718309859156,
+            "alt": "one part of the present scenario, which i would like to bring to you at this time for your review and judgment, involves greece and turkey.",
+            "score": 0.3891201317310333,
+            "segs": [
+                { "text": "One", "alts": [] },
+                {
+                    "text": "part",
+                    "alts": [
+                        { "text": "portion", "dist": 0 },
+                        { "text": "aspect", "dist": 0 },
+                        { "text": "element", "dist": 0 },
+                        { "text": "bit", "dist": 0 },
+                        { "text": "component", "dist": 0 },
+                        { "text": "section", "dist": 0 },
+                        { "text": "segment", "dist": 0 },
+                        { "text": "facet", "dist": 0 },
+                        { "text": "major aspect", "dist": 0 },
+                        { "text": "major component", "dist": 0 },
+                        { "text": "key aspect", "dist": 0 },
+                        { "text": "key component", "dist": 0 },
+                        { "text": "key element", "dist": 0 },
+                        { "text": "major element", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "of the",
+                    "alts": [
+                        { "text": "of both the", "dist": 0 },
+                        { "text": "of a", "dist": 0 },
+                        { "text": "of that same", "dist": 0 },
+                        { "text": "of either the", "dist": 0 },
+                        { "text": "of just the", "dist": 0 },
+                        { "text": "of a the", "dist": 0 },
+                        { "text": "of this year's", "dist": 0 },
+                        { "text": "of only the", "dist": 0 },
+                        { "text": "of even the", "dist": 0 },
+                        { "text": "of last year's", "dist": 0 },
+                        { "text": "of it's", "dist": 0 },
+                        { "text": "of", "dist": 0 },
+                        { "text": "for the", "dist": 0 },
+                        { "text": "of all the", "dist": 0 },
+                        { "text": "of every", "dist": 0 },
+                        { "text": "of another", "dist": 0 },
+                        { "text": "of those in the", "dist": 0 },
+                        { "text": "of not only the", "dist": 0 },
+                        { "text": "of this week's", "dist": 0 },
+                        { "text": "of that year's", "dist": 0 },
+                        { "text": "of it with the", "dist": 0 },
+                        { "text": "of something like the", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "present",
+                    "alts": [
+                        { "text": "current", "dist": 0 },
+                        { "text": "modern", "dist": 0 },
+                        { "text": "previous", "dist": 0 },
+                        { "text": "given", "dist": 0 },
+                        { "text": "observed", "dist": 0 },
+                        { "text": "existing", "dist": 0 },
+                        { "text": "portray", "dist": 0 },
+                        { "text": "manifest", "dist": 0 },
+                        { "text": "current modern", "dist": 0 },
+                        { "text": "current political", "dist": 0 },
+                        { "text": "occurring", "dist": 0 },
+                        { "text": "reflected", "dist": 0 },
+                        { "text": "actual election", "dist": 0 },
+                        { "text": "expressed", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "scenario",
+                    "alts": [
+                        { "text": "situation", "dist": 0 },
+                        { "text": "case", "dist": 0 },
+                        { "text": "circumstance", "dist": 0 },
+                        { "text": "event", "dist": 0 },
+                        { "text": "equation", "dist": 0 },
+                        { "text": "setting", "dist": 0 },
+                        { "text": "hypothetical situation", "dist": 0 },
+                        { "text": "type of situation", "dist": 0 },
+                        { "text": "sort of situation", "dist": 0 },
+                        { "text": "particular situation", "dist": 0 },
+                        { "text": "hypothetical case", "dist": 0 },
+                        { "text": "particular circumstance", "dist": 0 },
+                        { "text": "set of circumstances", "dist": 0 },
+                        { "text": "potential situation", "dist": 0 },
+                        { "text": "specific situation", "dist": 0 }
+                    ]
+                },
+                { "text": ",", "alts": [] },
+                {
+                    "text": "which I would",
+                    "alts": [
+                        { "text": "that I would", "dist": 0 },
+                        { "text": "which i'd", "dist": 0 },
+                        { "text": "which I still", "dist": 0 },
+                        { "text": "which I can only", "dist": 0 },
+                        { "text": "which I could", "dist": 0 },
+                        { "text": "something I would", "dist": 0 },
+                        { "text": "that i'd", "dist": 0 },
+                        { "text": "who I would", "dist": 0 },
+                        { "text": "anything I would", "dist": 0 },
+                        { "text": "what I would", "dist": 0 },
+                        { "text": "one I would", "dist": 0 },
+                        { "text": "however I would", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "like to",
+                    "alts": [
+                        { "text": "want to", "dist": 0 },
+                        { "text": "always want to", "dist": 0 },
+                        { "text": "just want to", "dist": 0 },
+                        { "text": "still want to", "dist": 0 },
+                        { "text": "really want to", "dist": 0 },
+                        { "text": "only want to", "dist": 0 },
+                        { "text": "seem to want to", "dist": 0 },
+                        { "text": "always have to", "dist": 0 },
+                        { "text": "do want to", "dist": 0 },
+                        { "text": "choose to", "dist": 0 },
+                        { "text": "now want to", "dist": 0 },
+                        { "text": "have to", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "bring",
+                    "alts": [
+                        { "text": "put", "dist": 0 },
+                        { "text": "carry", "dist": 0 },
+                        { "text": "take", "dist": 0 },
+                        { "text": "draw", "dist": 0 },
+                        { "text": "send", "dist": 0 },
+                        { "text": "introduce", "dist": 0 },
+                        { "text": "give", "dist": 0 },
+                        { "text": "brought", "dist": 0 },
+                        { "text": "add", "dist": 0 },
+                        { "text": "deliver", "dist": 0 },
+                        { "text": "help put", "dist": 0 },
+                        { "text": "throw", "dist": 0 },
+                        { "text": "drag", "dist": 0 },
+                        { "text": "try and put", "dist": 0 },
+                        { "text": "find a way to put", "dist": 0 },
+                        { "text": "help carry", "dist": 0 },
+                        { "text": "try to put", "dist": 0 },
+                        { "text": "start putting", "dist": 0 },
+                        { "text": "actually put", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "to you at",
+                    "alts": [
+                        { "text": "for you at", "dist": 0 },
+                        { "text": "with you at", "dist": 0 },
+                        { "text": "at you at", "dist": 0 },
+                        { "text": "from you at", "dist": 0 },
+                        { "text": "on you at", "dist": 0 },
+                        { "text": "after you at", "dist": 0 },
+                        { "text": "when you are at", "dist": 0 },
+                        { "text": "of you at", "dist": 0 },
+                        { "text": "when you're at", "dist": 0 },
+                        { "text": "off you at", "dist": 0 },
+                        { "text": "and you are at", "dist": 0 },
+                        { "text": "to you during", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "this",
+                    "alts": [
+                        { "text": "it", "dist": 0 },
+                        { "text": "the above", "dist": 0 },
+                        { "text": "the whole", "dist": 0 },
+                        { "text": "that first", "dist": 0 },
+                        { "text": "that little", "dist": 0 },
+                        { "text": "such a", "dist": 0 },
+                        { "text": "a certain", "dist": 0 },
+                        { "text": "the latter", "dist": 0 },
+                        { "text": "any such", "dist": 0 },
+                        { "text": "that latter", "dist": 0 },
+                        { "text": "that whole", "dist": 0 },
+                        { "text": "that very same", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "time",
+                    "alts": [
+                        { "text": "moment", "dist": 0 },
+                        { "text": "period", "dist": 0 },
+                        { "text": "tme", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "for your",
+                    "alts": [
+                        { "text": "to your", "dist": 0 },
+                        { "text": "about your", "dist": 0 },
+                        { "text": "of your", "dist": 0 },
+                        { "text": "with your", "dist": 0 },
+                        { "text": "in your", "dist": 0 },
+                        { "text": "on your", "dist": 0 },
+                        { "text": "from your", "dist": 0 },
+                        { "text": "through your", "dist": 0 },
+                        { "text": "like your", "dist": 0 },
+                        { "text": "out of your", "dist": 0 },
+                        { "text": "into your", "dist": 0 },
+                        { "text": "during your", "dist": 0 },
+                        { "text": "under your", "dist": 0 },
+                        { "text": "off your", "dist": 0 },
+                        { "text": "what about your", "dist": 0 },
+                        { "text": "since your", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "review",
+                    "alts": [
+                        { "text": "analysis", "dist": 0 },
+                        { "text": "evaluation", "dist": 0 },
+                        { "text": "assessment", "dist": 0 },
+                        { "text": "study", "dist": 0 },
+                        { "text": "audit", "dist": 0 },
+                        { "text": "summary", "dist": 0 },
+                        { "text": "survey", "dist": 0 },
+                        { "text": "publication", "dist": 0 },
+                        { "text": "presentation", "dist": 0 },
+                        { "text": "examination", "dist": 0 },
+                        { "text": "critique", "dist": 0 },
+                        { "text": "recommendation", "dist": 0 },
+                        { "text": "perusal", "dist": 0 },
+                        { "text": "investigation", "dist": 0 },
+                        { "text": "reconsideration", "dist": 0 },
+                        { "text": "write up", "dist": 0 },
+                        { "text": "synopsis", "dist": 0 },
+                        { "text": "full analysis", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "and",
+                    "alts": [
+                        { "text": "or", "dist": 0 },
+                        { "text": "as well as", "dist": 0 },
+                        { "text": "but also", "dist": 0 },
+                        { "text": "or even", "dist": 0 },
+                        { "text": "but", "dist": 0 },
+                        { "text": "but rather", "dist": 0 },
+                        { "text": "but instead", "dist": 0 },
+                        { "text": "or otherwise", "dist": 0 },
+                        { "text": "but mostly", "dist": 0 },
+                        { "text": "or rather", "dist": 0 },
+                        { "text": "&", "dist": 0 },
+                        { "text": "nor", "dist": 0 },
+                        { "text": "or even just", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "judgment",
+                    "alts": [
+                        { "text": "judgement", "dist": 0 },
+                        { "text": "reasoning", "dist": 0 },
+                        { "text": "discernment", "dist": 0 },
+                        { "text": "conviction", "dist": 0 },
+                        { "text": "decision", "dist": 0 },
+                        { "text": "assessment", "dist": 0 },
+                        { "text": "moral judgement", "dist": 0 },
+                        { "text": "good judgement", "dist": 0 },
+                        { "text": "moral character", "dist": 0 },
+                        { "text": "sound judgement", "dist": 0 },
+                        { "text": "reasonableness", "dist": 0 },
+                        { "text": "conscience", "dist": 0 },
+                        { "text": "intuition", "dist": 0 },
+                        { "text": "presumption", "dist": 0 },
+                        { "text": "objectivity", "dist": 0 }
+                    ]
+                },
+                { "text": ",", "alts": [] },
+                {
+                    "text": "involves",
+                    "alts": [
+                        { "text": "includes", "dist": 0 },
+                        { "text": "requires", "dist": 0 },
+                        { "text": "entails", "dist": 0 },
+                        { "text": "encompasses", "dist": 0 },
+                        { "text": "constitutes", "dist": 0 },
+                        { "text": "usually includes", "dist": 0 },
+                        { "text": "usually requires", "dist": 0 },
+                        { "text": "facilitates", "dist": 0 },
+                        { "text": "contains", "dist": 0 },
+                        { "text": "comprises", "dist": 0 },
+                        { "text": "covers", "dist": 0 },
+                        { "text": "incorporates", "dist": 0 },
+                        { "text": "affects", "dist": 0 },
+                        { "text": "means avoiding", "dist": 0 },
+                        { "text": "generally includes", "dist": 0 },
+                        { "text": "represents", "dist": 0 },
+                        { "text": "usually involved", "dist": 0 },
+                        { "text": "creates", "dist": 0 },
+                        { "text": "necessitates", "dist": 0 },
+                        { "text": "tends to involve", "dist": 0 },
+                        { "text": "did involve", "dist": 0 },
+                        { "text": "prevents", "dist": 0 },
+                        { "text": "generally requires", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "greece",
+                    "alts": [
+                        { "text": "poland", "dist": 0 },
+                        { "text": "cyprus", "dist": 0 },
+                        { "text": "hungary", "dist": 0 },
+                        { "text": "bulgaria", "dist": 0 },
+                        { "text": "serbia", "dist": 0 },
+                        { "text": "ukraine", "dist": 0 },
+                        { "text": "russia", "dist": 0 },
+                        { "text": "europe", "dist": 0 },
+                        { "text": "austria", "dist": 0 },
+                        { "text": "switzerland", "dist": 0 },
+                        { "text": "albania", "dist": 0 },
+                        { "text": "iceland", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "and",
+                    "alts": [
+                        { "text": "or", "dist": 0 },
+                        { "text": "as well as", "dist": 0 },
+                        { "text": "but also", "dist": 0 },
+                        { "text": "or even", "dist": 0 },
+                        { "text": "but", "dist": 0 },
+                        { "text": "but rather", "dist": 0 },
+                        { "text": "but instead", "dist": 0 },
+                        { "text": "or otherwise", "dist": 0 },
+                        { "text": "but mostly", "dist": 0 },
+                        { "text": "or rather", "dist": 0 },
+                        { "text": "&", "dist": 0 },
+                        { "text": "nor", "dist": 0 },
+                        { "text": "or even just", "dist": 0 }
+                    ]
+                },
+                {
+                    "text": "turkey",
+                    "alts": [
+                        { "text": "chile", "dist": 0 },
+                        { "text": "cranberry sauce", "dist": 0 },
+                        { "text": "sausage", "dist": 0 },
+                        { "text": "cyprus", "dist": 0 },
+                        { "text": "mashed potatoes", "dist": 0 },
+                        { "text": "roast beef", "dist": 0 },
+                        { "text": "iran", "dist": 0 },
+                        { "text": "ukraine", "dist": 0 },
+                        { "text": "lebanon", "dist": 0 },
+                        { "text": "pork", "dist": 0 },
+                        { "text": "russia", "dist": 0 },
+                        { "text": "morocco", "dist": 0 }
+                    ]
+                },
+                { "text": ".", "alts": [] }
+            ]
+        }
+    ]
+}
