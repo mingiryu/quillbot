@@ -5,8 +5,12 @@ import { withStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
 import Fab from "@material-ui/core/Fab";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
-import json from "./data.json";
+const Alert = (props) => {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+};
 
 const FabTooltip = withStyles((theme) => ({
     tooltip: {
@@ -23,11 +27,12 @@ const removePunct = (text) => {
 };
 
 const fetchQuill = (payload) => {
-    fetch("https://quillbot.p.rapidapi.com/paraphrase", {
+    return fetch("https://quillbot.p.rapidapi.com/paraphrase", {
         method: "POST",
         headers: {
             "x-rapidapi-host": "quillbot.p.rapidapi.com",
-            "x-rapidapi-key":"4e26127674msh44f405456fbb569p15cdd2jsn41c7e4a8bdd5",
+            "x-rapidapi-key":
+                "4e26127674msh44f405456fbb569p15cdd2jsn41c7e4a8bdd5",
             "content-type": "application/json",
             accept: "application/json",
         },
@@ -41,9 +46,16 @@ const fetchQuill = (payload) => {
     })
         .then((response) => {
             console.log(response);
+            if (response.ok) {
+                return require("./data.json");
+            } else {
+                return null;
+            }
+
         })
         .catch((err) => {
             console.log(err);
+            return null;
         });
 };
 
@@ -52,6 +64,7 @@ export default class Article extends React.Component {
         super(props);
 
         this.state = {
+            snackOpen: false,
             fabOpen: false,
             altsOpen: false,
             fabRect: { top: "0px", left: "0px" },
@@ -61,6 +74,14 @@ export default class Article extends React.Component {
         };
     }
 
+    handleSnackClose = (event, reason) => {
+        if (reason === "clickaway") {
+            return;
+        }
+
+        this.setState({ snackOpen: false });
+    };
+
     handleTooltipClose = () => {
         this.setState({ fabOpen: false, altsOpen: false });
     };
@@ -68,7 +89,6 @@ export default class Article extends React.Component {
     handleHighlight = (event) => {
         if (!this.state.fabOpen && window.getSelection) {
             const selection = window.getSelection();
-            const range = selection.getRangeAt(0);
             const text = selection.toString().trim();
 
             if (text && text !== "") {
@@ -81,7 +101,7 @@ export default class Article extends React.Component {
                         top: `${fabRect.top + window.scrollY}px`,
                         left: `${fabRect.right + window.scrollX}px`,
                     },
-                    range: range,
+                    range: selection.getRangeAt(0),
                 });
             }
         }
@@ -103,12 +123,7 @@ export default class Article extends React.Component {
         event.preventDefault();
     };
 
-    handleClick = (event) => {
-        const range = this.state.range;
-        fetchQuill(
-            "Researchers in the field of HCI both observe the ways in which humans interact with computers and design technologies that let humans interact with computers in novel ways. Humans interact with computers in many ways; the interface between humans and computers is crucial to facilitating this interaction."
-        );
-
+    updateView = (json, range) => {
         if (range) {
             const orig = json.original;
             const pps = json.paraphrases[0];
@@ -152,6 +167,17 @@ export default class Article extends React.Component {
             // Clear selection
             window.getSelection().empty();
         }
+    };
+
+    handleClick = (event) => {
+        const range = this.state.range;
+        fetchQuill(range.toString()).then((json) => {
+            if (json) {
+                this.updateView(json, range);
+            } else {
+                this.setState({ snackOpen: true });
+            }
+        });
         event.preventDefault();
     };
 
@@ -170,6 +196,16 @@ export default class Article extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <Snackbar
+                    open={this.state.snackOpen}
+                    autoHideDuration={6000}
+                    onClose={this.handleSnackClose}
+                >
+                    <Alert onClose={this.handleSnackClose} severity="error">
+                        Unfortunately, request to the QuillBot API failed.
+                    </Alert>
+                </Snackbar>
+
                 <FabTooltip
                     open={this.state.fabOpen}
                     disableFocusListener
