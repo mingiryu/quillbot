@@ -2,9 +2,10 @@ import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 
 import "./App.css";
-import Article from "./Article";
+import Article from "./comps/Article";
 
 import { makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import AppBar from "@material-ui/core/AppBar";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -18,6 +19,8 @@ import Zoom from "@material-ui/core/Zoom";
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
+        display: "flex",
+        flexDirection: "row",
         height: 50,
         boxShadow: "0 1px 0 0 #fff",
         backgroundColor: "#084466",
@@ -76,79 +79,80 @@ function ScrollTop(props) {
 
 function App(props) {
     const classes = useStyles();
+    const matches = useMediaQuery("(min-width:900px)");
 
     return (
-        <HashRouter>
-            <Switch>
-                <Route path="">
-                    <AppBar
-                        className={classes.appBar}
-                        position="static"
-                    ></AppBar>
+        <React.Fragment>
+            <AppBar className={classes.appBar} position="static"></AppBar>
 
-                    <Container className={classes.container}>
-                        <Grid container justify="center" spacing={4}>
-                            <Grid item xs={7}>
+            <Container className={classes.container}>
+                <Grid container justify="center" spacing={4}>
+                    <Grid item xs={matches ? 7 : 12}>
+                        <Card className={classes.border} variant="outlined">
+                            <Box
+                                id="back-to-top-anchor"
+                                style={{
+                                    height: 50,
+                                    background: "#f4f4f4",
+                                    borderBottom: "1px solid #ccc",
+                                }}
+                            ></Box>
+
+                            <CardContent
+                                style={{
+                                    margin: "0 1em",
+                                }}
+                            >
+                                <HashRouter>
+                                    <Switch>
+                                        <Route path="/Seneca">
+                                            <Article render="Seneca" />
+                                        </Route>
+                                        <Route path="/">
+                                            <Article render="Truman"/>
+                                        </Route>
+                                    </Switch>
+                                </HashRouter>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={matches ? 3 : 12}>
+                        <Grid container spacing={4}>
+                            <Grid item xs={12}>
                                 <Card
                                     className={classes.border}
+                                    style={{
+                                        height: 150,
+                                        background: "#f4f4f4",
+                                    }}
                                     variant="outlined"
-                                >
-                                    <Box
-                                        id="back-to-top-anchor"
-                                        style={{
-                                            height: 50,
-                                            background: "#f4f4f4",
-                                            borderBottom: "1px solid #ccc",
-                                        }}
-                                    ></Box>
-
-                                    <CardContent
-                                        style={{
-                                            margin: "0 1em",
-                                        }}
-                                    >
-                                        <Article />
-                                    </CardContent>
-                                </Card>
+                                ></Card>
                             </Grid>
-                            <Grid item xs={3}>
-                                <Grid container spacing={4}>
-                                    <Grid item xs={12}>
-                                        <Card
-                                            className={classes.border}
-                                            style={{
-                                                height: 150,
-                                                background: "#f4f4f4",
-                                            }}
-                                            variant="outlined"
-                                        ></Card>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <Card
-                                            className={classes.border}
-                                            style={{
-                                                height: 100,
-                                                background: "#f4f4f4",
-                                            }}
-                                            variant="outlined"
-                                        ></Card>
-                                    </Grid>
-                                </Grid>
+                            <Grid item xs={12}>
+                                <Card
+                                    className={classes.border}
+                                    style={{
+                                        height: 100,
+                                        background: "#f4f4f4",
+                                    }}
+                                    variant="outlined"
+                                ></Card>
                             </Grid>
                         </Grid>
-                    </Container>
-                    <ScrollTop {...props}>
-                        <Fab
-                            color="primary"
-                            size="small"
-                            aria-label="scroll back to top"
-                        >
-                            <KeyboardArrowUpIcon />
-                        </Fab>
-                    </ScrollTop>
-                </Route>
-            </Switch>
-        </HashRouter>
+                    </Grid>
+                </Grid>
+            </Container>
+
+            <ScrollTop {...props}>
+                <Fab
+                    color="primary"
+                    size="small"
+                    aria-label="scroll back to top"
+                >
+                    <KeyboardArrowUpIcon />
+                </Fab>
+            </ScrollTop>
+        </React.Fragment>
     );
 }
 
