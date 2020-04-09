@@ -11,6 +11,7 @@ import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
 import Fab from "@material-ui/core/Fab";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const FabTooltip = withStyles((theme) => ({
     tooltip: {
@@ -35,14 +36,14 @@ const Alert = (props) => {
 };
 
 const removePunct = (text) => {
-    return text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+    return text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\']/g, "");
 };
 
 // For dev and testing
 const _fetchQuill = (payload) => {
     console.log({ payload: payload });
     return new Promise(function (resolve, reject) {
-        resolve(require("./data.json"));
+        setTimeout(resolve.bind(this, require("./data.json")), 1500);
     });
 };
 
@@ -57,7 +58,7 @@ const getFullString = (range) => {
     }
 
     let fullString = [];
-    while (start != end && end) {
+    while (start !== end && start) {
         fullString.push(start.innerHTML);
         start = start.nextElementSibling;
     }
@@ -119,6 +120,7 @@ class Article extends React.Component {
             altsRect: { top: "0px", left: "0px" },
             range: null,
             alts: [],
+            progress: false,
         };
     }
 
@@ -199,7 +201,8 @@ class Article extends React.Component {
     };
 
     handleSelect = (event) => {
-        if (!this.state.fabOpen && window.getSelection) {
+        if (event.target.tagName.toLowerCase() === "svg") {
+        } else if (!this.state.fabOpen && window.getSelection) {
             const selection = window.getSelection();
             const text = selection.toString().trim();
 
@@ -221,6 +224,8 @@ class Article extends React.Component {
     };
 
     handleClick = (event) => {
+        this.setState({ progress: true });
+
         const range = this.state.range;
         const payload = getFullString(range);
 
@@ -230,6 +235,7 @@ class Article extends React.Component {
             } else {
                 this.setState({ snackOpen: true });
             }
+            this.setState({ progress: false });
         });
         event.preventDefault();
     };
@@ -247,9 +253,9 @@ class Article extends React.Component {
     }
 
     render() {
-        let Render = Truman
+        let Render = Truman;
         if (this.props.render === "Seneca") {
-            Render = Seneca
+            Render = Seneca;
         }
         return (
             <React.Fragment>
@@ -264,16 +270,20 @@ class Article extends React.Component {
                 </Snackbar>
 
                 <FabTooltip
-                    open={this.state.fabOpen}
+                    open={this.state.progress ? true : this.state.fabOpen}
                     disableFocusListener
                     disableHoverListener
                     disableTouchListener
                     interactive
                     style={{ ...this.state.fabRect, position: "absolute" }}
                     title={
-                        <Fab color="primary" size="small">
-                            <CreateRoundedIcon onClick={this.handleClick} />
-                        </Fab>
+                        this.state.progress ? (
+                            <CircularProgress />
+                        ) : (
+                            <Fab color="primary" size="small">
+                                <CreateRoundedIcon onClick={this.handleClick} />
+                            </Fab>
+                        )
                     }
                 >
                     <span />
@@ -298,7 +308,7 @@ class Article extends React.Component {
                 >
                     <span />
                 </HtmlTooltip>
-                
+
                 <Render />
             </React.Fragment>
         );
