@@ -39,14 +39,6 @@ const removePunct = (text) => {
     return text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\']/g, "");
 };
 
-// For dev and testing
-const _fetchQuill = (payload) => {
-    console.log({ payload: payload });
-    return new Promise(function (resolve, reject) {
-        setTimeout(resolve.bind(this, require("./data.json")), 1500);
-    });
-};
-
 // getSelection() may return a string with partial words. This ensures that each words are complete.
 const getFullString = (range) => {
     let start = range.startContainer.parentElement;
@@ -66,8 +58,18 @@ const getFullString = (range) => {
     return fullString.join(" ");
 };
 
+// For dev and testing
+const _fetchQuill = (payload) => {
+    console.log({ payload: payload });
+    return new Promise(function (resolve, reject) {
+        setTimeout(resolve.bind(this, require("./data.json")), 1500);
+    });
+};
+
 // For production
 const fetchQuill = (payload) => {
+    console.log({ payload: payload });
+
     return fetch("https://quillbot.p.rapidapi.com/paraphrase", {
         method: "POST",
         headers: {
@@ -179,7 +181,9 @@ class Article extends React.Component {
 
                     start = start.nextElementSibling;
                 } else {
-                    console.log("not enough elements");
+                    console.log(
+                        "Not enough span elements left in the div container."
+                    );
                 }
             }
         });
@@ -207,6 +211,7 @@ class Article extends React.Component {
 
     handleSelect = (event) => {
         if (event.target.tagName.toLowerCase() === "svg") {
+            // Prevent button click from updating boundingClientRect
         } else if (!this.state.fabOpen && window.getSelection) {
             const selection = window.getSelection();
             const text = selection.toString().trim();
@@ -230,18 +235,20 @@ class Article extends React.Component {
 
     handleClick = (event) => {
         this.setState({ progress: true });
+        this.forceUpdate()
 
         const range = this.state.range;
         const payload = getFullString(range);
 
-        fetchQuill(payload).then((json) => {
-            if (json) {
-                this.updateView(json, range);
-            } else {
-                this.setState({ snackOpen: true });
-            }
-            this.setState({ progress: false });
-        });
+        fetchQuill(payload)
+            .then((json) => {
+                if (json) {
+                    this.updateView(json, range);
+                } else {
+                    this.setState({ snackOpen: true });
+                }
+            })
+            .then(() => this.setState({ progress: false }));
         event.preventDefault();
     };
 
@@ -275,7 +282,7 @@ class Article extends React.Component {
                 </Snackbar>
 
                 <FabTooltip
-                    open={this.state.progress ? true : this.state.fabOpen}
+                    open={this.state.progress ? this.state.progress : this.state.fabOpen}
                     disableFocusListener
                     disableHoverListener
                     disableTouchListener
@@ -303,7 +310,7 @@ class Article extends React.Component {
                     style={{ ...this.state.altsRect, position: "absolute" }}
                     title={
                         <React.Fragment>
-                            {this.state.alts.slice(0, 5).map((alt) => (
+                            {this.state.alts.slice(0, 7).map((alt) => (
                                 <span key={alt} style={{ display: "block" }}>
                                     {alt}
                                 </span>
