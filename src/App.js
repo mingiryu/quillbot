@@ -5,7 +5,6 @@ import "./App.css";
 import NavBar from "./components/navBar/"
 import SideBar from "./components/sideBar/"
 import Article from "./components/article/";
-import Controls from "./components/controls/"
 
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -26,7 +25,6 @@ const App = (props) => {
     return (
         <React.Fragment>
             <NavBar />
-            <Controls />
 
             <HashRouter>
                 <Container className={classes.container}>

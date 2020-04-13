@@ -7,15 +7,18 @@ import { _fetchJSON, fetchJSON } from "../../actions/loadData"
 import { updateView, convertDocument } from "../../util/templateConverter"
 import { debounce } from "../../util/eventHelper"
 
-import Fab from "@material-ui/core/Fab";
+import Tooltip from '@material-ui/core/Tooltip';
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
 
 const EditIcon = () => (
+    <Tooltip title="REPHRASE IT" placement="top" arrow>
     <Fab color="primary" size="small">
         <CreateRoundedIcon />
     </Fab>
+    </Tooltip>
 )
 
 class SelectText extends React.Component {
@@ -66,9 +69,10 @@ class SelectText extends React.Component {
         this.setState({ progress: true });
 
         const range = this.state.range;
+        const slider = this.context.slider;
         const payload = getPayload(range);
 
-        _fetchJSON(payload)
+        fetchJSON(payload, slider.strength, slider.autoflip)
             .then((json) => {
                 if (json) {
                     updateView(json, range);

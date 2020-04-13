@@ -6,6 +6,7 @@ class ContextProvider extends Component {
     state = {
         error: "",
         tooltip: null,
+        slider: { strength: 2, autoflip: 0.5 },
     }
 
     triggerSnack = (value) => {
@@ -16,11 +17,20 @@ class ContextProvider extends Component {
         this.setState({ tooltip: value })
     }
 
+    setSlider = (event, value) => {
+        if (Number.isInteger(value) && value >= 1) {
+            this.setState({ slider: { ...this.state.slider, strength: value } });
+        } else {
+            this.setState({ slider: { ...this.state.slider, autoflip: value } });
+        }
+    }
+
     render() {
         return <Provider value={{
             ...this.state,
             triggerSnack: this.triggerSnack,
-            setTooltip: this.setTooltip
+            setTooltip: this.setTooltip,
+            setSlider: this.setSlider
         }}>{this.props.children}</Provider>;
     }
 }
