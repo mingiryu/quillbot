@@ -5,6 +5,7 @@ import "./App.css";
 import NavBar from "./components/navBar/"
 import SideBar from "./components/sideBar/"
 import Article from "./components/article/";
+import ScrollTop from "./components/scrollTop/"
 
 import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -18,14 +19,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const App = (props) => {
+const App = () => {
     const classes = useStyles();
     const matches = useMediaQuery("(min-width:900px)");
 
     return (
         <React.Fragment>
             <NavBar />
-
             <HashRouter>
                 <Container className={classes.container}>
                     <Grid container justify="center" spacing={4}>
@@ -38,6 +38,7 @@ const App = (props) => {
                     </Grid>
                 </Container>
             </HashRouter>
+            <ScrollTop />
         </React.Fragment>
     );
 }

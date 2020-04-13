@@ -32,19 +32,16 @@ const ScrollTop = (props) => {
 
     return (
         <Zoom in={trigger}>
-            <div
+            <Fab
                 onClick={handleClick}
-                role="presentation"
                 className={classes.scrollTop}
+
+                color="primary"
+                size="small"
+                aria-label="scroll back to top"
             >
-                <Fab
-                    color="primary"
-                    size="small"
-                    aria-label="scroll back to top"
-                >
-                    <KeyboardArrowUpIcon />
-                </Fab>
-            </div>
+                <KeyboardArrowUpIcon />
+            </Fab>
         </Zoom>
     )
 }
