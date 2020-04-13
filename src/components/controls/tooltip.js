@@ -9,11 +9,9 @@ const HtmlTooltip = withStyles((theme) => ({
     tooltip: {
         fontSize: 12,
         fontFamily: "Montserrat, sans-serif",
-        borderRadius: 0,
         color: "black",
         background: "white",
         border: "0.1px solid lightgray",
-        borderRadius: "1px",
         boxShadow: "10px 20px 50px 5px lightgray;",
     },
     arrow: {

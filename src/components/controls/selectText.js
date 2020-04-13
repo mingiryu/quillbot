@@ -72,7 +72,6 @@ class SelectText extends React.Component {
         const range = this.state.range;
         const slider = this.context.slider;
         const payload = getPayload(range);
-        console.log(payload)
 
         fetchJSON(payload, slider.strength, slider.autoflip)
             .then((json) => {
