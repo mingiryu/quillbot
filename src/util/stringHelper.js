@@ -1,5 +1,5 @@
 export const removePunct = (text) => {
-    return text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\']/g, "");
+    return text.replace(/[.,/#!$%^&*;:{}=\-_`~()']/g, "");
 };
 
 // getSelection() may return a string with partial words. This ensures that each words are complete.

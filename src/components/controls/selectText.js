@@ -44,7 +44,8 @@ class SelectText extends React.Component {
             if (text && text !== "") {
                 const range = selection.getRangeAt(0)
                 if (range.commonAncestorContainer.tagName && range.commonAncestorContainer.tagName.toLowerCase() === "div") {
-                    this.context.triggerSnack("Please hightlight within a single paragraph.")
+                    this.context.triggerSnack("Please select sentences from a single paragraph.")
+                } else if (range.startContainer.parentElement.tagName.toLowerCase() !== "span"){
                 } else {
                     const rect = range.endContainer.parentElement.getBoundingClientRect()
                     this.setState({
@@ -71,8 +72,9 @@ class SelectText extends React.Component {
         const range = this.state.range;
         const slider = this.context.slider;
         const payload = getPayload(range);
+        console.log(payload)
 
-        fetchJSON(payload, slider.strength, slider.autoflip)
+        _fetchJSON(payload, slider.strength, slider.autoflip)
             .then((json) => {
                 if (json) {
                     updateView(json, range);
