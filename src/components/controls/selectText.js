@@ -91,7 +91,7 @@ class SelectText extends React.Component {
                 alts: event.target.alts,
                 rect: {
                     top: `${rect.top + window.scrollY + 10}px`,
-                    left: `${rect.left + window.scrollX}px`,
+                    left: `${rect.left + window.scrollX + 10}px`,
                 }
             })
         }
