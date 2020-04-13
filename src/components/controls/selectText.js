@@ -74,7 +74,7 @@ class SelectText extends React.Component {
         const payload = getPayload(range);
         console.log(payload)
 
-        _fetchJSON(payload, slider.strength, slider.autoflip)
+        fetchJSON(payload, slider.strength, slider.autoflip)
             .then((json) => {
                 if (json) {
                     updateView(json, range);
