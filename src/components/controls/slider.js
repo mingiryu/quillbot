@@ -4,7 +4,6 @@ import { ContextConsumer } from "../context/"
 
 import MuiSlider from '@material-ui/core/Slider';
 import Tooltip from '@material-ui/core/Tooltip';
-import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 import Icon from '@material-ui/core/Icon';
 
 const Slider = () => {

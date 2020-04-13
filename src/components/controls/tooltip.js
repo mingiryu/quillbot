@@ -23,25 +23,25 @@ const Tooltip = () => {
             {context => {
                 if (!context.tooltip) return;
 
-                return (<HtmlTooltip
-                    open={context.tooltip}
-                    disableFocusListener
-                    disableHoverListener
-                    disableTouchListener
-                    placement="bottom-start"
-                    style={{ ...context.tooltip.rect, position: "absolute" }}
-                    title={
-                        <React.Fragment>
-                            {context.tooltip.alts.slice(0, 7).map((alt) => (
-                                <span key={alt} style={{ display: "block" }}>
-                                    {alt}
-                                </span>
-                            ))}
-                        </React.Fragment>
-                    }
-                >
-                    <span />
-                </HtmlTooltip>)
+                return (
+                    <HtmlTooltip
+                        open={context.tooltip != null}
+                        disableFocusListener
+                        disableHoverListener
+                        disableTouchListener
+                        placement="bottom-start"
+                        style={{ ...context.tooltip.rect, position: "absolute" }}
+                        title={
+                            <React.Fragment>
+                                {context.tooltip.alts.slice(0, 7).map((alt) => (
+                                    <span key={alt} style={{ display: "block" }}>
+                                        {alt}
+                                    </span>
+                                ))}
+                            </React.Fragment>
+                        }
+                    ><span /></HtmlTooltip>
+                )
             }}
         </ContextConsumer>
     )

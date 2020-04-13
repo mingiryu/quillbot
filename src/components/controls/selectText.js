@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ContextConsumer } from "../context/"
+import { Context } from "../context/"
 
 import { getPayload } from "../../util/stringHelper"
 import { _fetchJSON, fetchJSON } from "../../actions/loadData"
@@ -61,6 +61,7 @@ class SelectText extends React.Component {
     handleClose = (event) => {
         if (event.target.tagName.toLowerCase() !== "svg" && event.target.tagName.toLowerCase() !== "path") {
             this.setState({ open: false })
+            this.context.setTooltip(null)
         }
     }
 
@@ -120,5 +121,5 @@ class SelectText extends React.Component {
         )
     }
 }
-SelectText.contextType = ContextConsumer
+SelectText.contextType = Context
 export default SelectText

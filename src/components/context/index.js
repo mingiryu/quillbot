@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-const { Provider, Consumer } = React.createContext();
+import React from "react";
+const Context = React.createContext();
+const { Provider, Consumer } = Context
 
 // Note: You could also use hooks to provide state and convert this into a functional component.
-class ContextProvider extends Component {
+class ContextProvider extends React.Component {
     state = {
         error: "",
         tooltip: null,
@@ -36,3 +37,4 @@ class ContextProvider extends Component {
 }
 
 export { ContextProvider, Consumer as ContextConsumer };
+export { Context }
