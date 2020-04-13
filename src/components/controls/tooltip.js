@@ -14,7 +14,7 @@ const HtmlTooltip = withStyles((theme) => ({
         background: "white",
         border: "0.1px solid lightgray",
         borderRadius: "1px",
-        boxShadow: "10px 10px 100px 10px lightgray;",
+        boxShadow: "10px 20px 50px 5px lightgray;",
     },
     arrow: {
         color: "white",
