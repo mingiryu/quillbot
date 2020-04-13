@@ -42,7 +42,6 @@ class SelectText extends React.Component {
             const text = selection.toString().trim();
 
             if (text && text !== "") {
-                console.log(text)
                 const range = selection.getRangeAt(0)
                 if (range.commonAncestorContainer.tagName && range.commonAncestorContainer.tagName.toLowerCase() === "div") {
                     this.context.triggerSnack("Please hightlight within a single paragraph.")
@@ -77,7 +76,7 @@ class SelectText extends React.Component {
                 if (json) {
                     updateView(json, range);
                 } else {
-                    this.context.triggerSnack("Invalid request.")
+                    this.context.triggerSnack("Bad request.")
                 }
                 this.setState({ progress: false, open: false })
             })
