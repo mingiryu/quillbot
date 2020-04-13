@@ -12,9 +12,13 @@ const HtmlTooltip = withStyles((theme) => ({
         borderRadius: 0,
         color: "black",
         background: "white",
-        border: "1px solid rgba(0, 0, 255, .2)",
-        boxShadow: "6px 6px 1px 0.5px rgba(0, 0, 255, .2)",
+        border: "0.1px solid lightgray",
+        borderRadius: "1px",
+        boxShadow: "10px 10px 100px 10px lightgray;",
     },
+    arrow: {
+        color: "white",
+    }
 }))(MuiTooltip);
 
 const Tooltip = () => {
@@ -25,6 +29,7 @@ const Tooltip = () => {
 
                 return (
                     <HtmlTooltip
+                        arrow
                         open={context.tooltip != null}
                         disableFocusListener
                         disableHoverListener

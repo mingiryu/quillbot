@@ -93,21 +93,14 @@ h6 {
 }
 
 .article-word {
-    color: orange;
-    font-weight: bold;
-    text-decoration: underline solid black;
-    text-decoration-skip-ink: auto;
+    color: #0645ad;
 }
 
 .article-word:hover {
-    color: slateblue
-}
-
-.article-unchanged {
-    text-decoration: underline solid black;
-    text-decoration-skip-ink: auto;
+    text-decoration: underline solid #0645ad;
 }
 
 .article-unchanged:hover {
-    color: slateblue
+    color: #0645ad;
+    text-decoration: underline solid #0645ad;
 }
