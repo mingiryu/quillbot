@@ -22,7 +22,7 @@ class ContextProvider extends React.Component {
         if (Number.isInteger(value) && value >= 1) {
             this.setState({ slider: { ...this.state.slider, strength: value } });
         } else {
-            this.setState({ slider: { ...this.state.slider, autoflip: value } });
+            this.setState({ slider: { ...this.state.slider, autoflip: value.toFixed(1) } });
         }
     }
 

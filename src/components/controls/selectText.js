@@ -88,7 +88,7 @@ class SelectText extends React.Component {
     displayTooltip = (event) => {
         const offset = [10, 20]
         const target = event.target.parentElement
-        if (target.alts && target.alts.length) {
+        if (target && target.alts && target.alts.length) {
             const rect = target.getBoundingClientRect();
             this.context.setTooltip({
                 alts: target.alts,

@@ -46,7 +46,7 @@ const SideBar = () => {
                     className={classes.border}
                     style={{
                         background: "#f4f4f4",
-                        padding: "0em 1em 0em 1em",
+                        padding: "0.5em 1.5em 0.5em 1.5em",
                     }}
                     variant="outlined"
                 >

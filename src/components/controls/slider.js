@@ -40,7 +40,7 @@ const Slider = () => {
                         step={0.1}
                         marks
                         min={0.0}
-                        max={1.0}
+                        max={0.99}
                     />
                 </React.Fragment>
             ))}
