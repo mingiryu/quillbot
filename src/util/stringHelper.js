@@ -8,10 +8,6 @@ export const getPayload = (range) => {
     let end = range.endContainer.parentElement.nextElementSibling;
     let fullString = [];
 
-    // If <p> is selected by accident, it defaults to next span element.
-    if (start.tagName.toLowerCase() !== "span") {
-        start = range.startContainer.nextElementSibling;
-    }
     while (start !== end && start) {
         fullString.push(start.innerHTML);
         start = start.nextElementSibling;

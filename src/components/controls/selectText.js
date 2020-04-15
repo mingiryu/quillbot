@@ -46,6 +46,7 @@ class SelectText extends React.Component {
                 if (range.commonAncestorContainer.tagName && range.commonAncestorContainer.tagName.toLowerCase() === "div") {
                     this.context.triggerSnack("Please select sentences from a single paragraph.")
                 } else if (range.startContainer.parentElement.tagName.toLowerCase() !== "span"){
+                } else if (range.endContainer.parentElement.tagName.toLowerCase() !== "span") { 
                 } else {
                     const rect = range.endContainer.parentElement.getBoundingClientRect()
                     this.setState({

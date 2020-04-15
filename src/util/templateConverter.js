@@ -13,11 +13,6 @@ export const updateView = (json, range) => {
     let start = range.startContainer.parentElement;
     let end = range.endContainer.parentElement.nextElementSibling;
 
-    // If div:article-paragraph is selected by accident, it defaults to next span element.
-    if (start.tagName.toLowerCase() !== "span") {
-        start = range.startContainer.nextElementSibling;
-    }
-
     json.forEach((data) => {
         const orig = data.original;
         const pps = data.paraphrases[0];
@@ -26,7 +21,7 @@ export const updateView = (json, range) => {
         for (let i = 0; i < segs.length; i++) {
             const seg = segs[i];
 
-            if (start) {
+            if (start && start !== end) {
                 // Check for punctuation
                 if (i < segs.length - 1) {
                     const nextSeg = segs[i + 1].text;
