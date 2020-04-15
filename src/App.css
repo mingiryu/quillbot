@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
 h1 {
     display: block;
     margin-block-start: 0.83em;
@@ -40,7 +39,7 @@ h4 {
     font-weight: 600;
     display: block;
     color: #666;
-    font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
     margin-bottom: 10px;
     line-height: 1.42857143;
 }
@@ -56,7 +55,7 @@ ul {
     margin-left: 20px;
     margin-top: 0;
     margin-bottom: 10px;
-    font-family: Montserrat,sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
 }
@@ -92,11 +91,33 @@ h6 {
     font-weight: 50a0;
 }
 
-.article-word {
+.article-changed {
     color: #0645ad;
+    display: inline-flex;
+    flex-direction: column;
 }
 
-.article-word:hover {
+.article-unchanged {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.article-nooptions {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.article-original {
+    display: block;
+    font-size: 8px;
+    line-height: 0
+}
+
+.article-new {
+    display: block
+}
+
+.article-changed:hover {
     text-decoration: underline solid #0645ad;
 }
 

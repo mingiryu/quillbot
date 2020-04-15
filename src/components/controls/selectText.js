@@ -15,9 +15,9 @@ import Zoom from "@material-ui/core/Zoom";
 
 const EditIcon = () => (
     <Tooltip title="REPHRASE IT" placement="top" arrow>
-    <Fab color="primary" size="small">
-        <CreateRoundedIcon />
-    </Fab>
+        <Fab color="primary" size="small">
+            <CreateRoundedIcon />
+        </Fab>
     </Tooltip>
 )
 
@@ -45,14 +45,14 @@ class SelectText extends React.Component {
                 const range = selection.getRangeAt(0)
                 if (range.commonAncestorContainer.tagName && range.commonAncestorContainer.tagName.toLowerCase() === "div") {
                     this.context.triggerSnack("Please select sentences from a single paragraph.")
-                } else if (range.startContainer.parentElement.tagName.toLowerCase() !== "span"){
-                } else if (range.endContainer.parentElement.tagName.toLowerCase() !== "span") { 
+                } else if (range.startContainer.parentElement.tagName.toLowerCase() !== "span") {
+                } else if (range.endContainer.parentElement.tagName.toLowerCase() !== "span") {
                 } else {
                     const rect = range.endContainer.parentElement.getBoundingClientRect()
                     this.setState({
                         open: true,
                         top: `${rect.top + window.scrollY}px`,
-                        left: `${rect.right + window.scrollX}px`,
+                        left: `${rect.right + window.scrollX + 30}px`,
                         range: range,
                     });
                 }
@@ -86,11 +86,12 @@ class SelectText extends React.Component {
     };
 
     displayTooltip = (event) => {
-        const offset = [20, 10]
-        if (event.target.alts && event.target.alts.length) {
-            const rect = event.target.getBoundingClientRect();
+        const offset = [10, 20]
+        const target = event.target.parentElement
+        if (target.alts && target.alts.length) {
+            const rect = target.getBoundingClientRect();
             this.context.setTooltip({
-                alts: event.target.alts,
+                alts: target.alts,
                 rect: {
                     top: `${rect.top + window.scrollY + offset[1]}px`,
                     left: `${rect.left + window.scrollX + offset[0]}px`,

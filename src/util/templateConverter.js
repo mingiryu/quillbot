@@ -21,7 +21,7 @@ export const updateView = (json, range) => {
         for (let i = 0; i < segs.length; i++) {
             const seg = segs[i];
 
-            if (start && start !== end) {
+            if (start ) {
                 // Check for punctuation
                 if (i < segs.length - 1) {
                     const nextSeg = segs[i + 1].text;
@@ -34,11 +34,14 @@ export const updateView = (json, range) => {
                 if (orig.toLowerCase().includes(seg.text.toLowerCase())) {
                     if (seg.alts.length) {
                         start.setAttribute("class", "article-unchanged");
+                    } else {
+                        start.setAttribute("class", "article-nooptions");
                     }
                 } else {
-                    start.setAttribute("class", "article-word");
+                    start.setAttribute("class", "article-changed");
                 }
-                start.innerHTML = `${seg.text}${punct}`;
+                const origText = start.innerHTML
+                start.innerHTML = `<span class="article-new">${seg.text}${punct}</span><span class="article-original">${origText}</span>`;
                 start.alts = seg.alts.map((a) => a.text);
 
                 start = start.nextElementSibling;
