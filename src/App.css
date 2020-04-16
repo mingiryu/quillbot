@@ -91,6 +91,13 @@ h6 {
     font-weight: 50a0;
 }
 
+.article-rephrased {
+    border: 1px solid #eee;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+    background: #eee;
+}
+
 .article-changed {
     color: #0645ad;
 }
@@ -102,9 +109,7 @@ h6 {
 }
 
 .article-original {
-    display: block;
-    font-size: 8px;
-    line-height: 0
+    background: lightyellow;
 }
 
 .article-new {

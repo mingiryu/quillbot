@@ -4,7 +4,7 @@ import { Context } from "../context/"
 
 import { getPayload } from "../../util/stringHelper"
 import { _fetchJSON, fetchJSON } from "../../actions/loadData"
-import { updateView, convertDocument } from "../../util/templateConverter"
+import { createView, convertDocument } from "../../util/templateConverter"
 import { debounce } from "../../util/eventHelper"
 
 import Tooltip from '@material-ui/core/Tooltip';
@@ -47,7 +47,7 @@ class SelectText extends React.Component {
                     this.context.triggerSnack("Please select sentences from a single paragraph.")
                 } else {
                     let end = range.endContainer.parentElement
-                    if (range.endContainer.wholeText === ' ') {
+                    if (range.endContainer.wholeText === ' ' && range.endContainer.nextElementSibling) {
                         end = range.endContainer.nextElementSibling
                     }
                     const rect = end.getBoundingClientRect()
@@ -79,7 +79,7 @@ class SelectText extends React.Component {
         fetchJSON(payload, slider.strength, slider.autoflip)
             .then((json) => {
                 if (json) {
-                    updateView(json, range);
+                    createView(json, range);
                 } else {
                     this.context.triggerSnack("Bad request.")
                 }

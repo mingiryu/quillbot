@@ -7,7 +7,7 @@ export const _fetchJSON = (payload, strength=1, autoflip=1.0) => {
 
 // For production
 export const fetchJSON = (payload, strength = 1, autoflip = 1.0) => {
-    return fetch("https://quillbot.p.rapidapi.com/paraphrase", {
+    const request_header = {
         method: "POST",
         headers: {
             "x-rapidapi-host": "quillbot.p.rapidapi.com",
@@ -18,12 +18,12 @@ export const fetchJSON = (payload, strength = 1, autoflip = 1.0) => {
         body: JSON.stringify({
             text: payload,
             numParaphrases: 1,
-            coupon: "IJg98DCuPqGuit7BrGXKaWsoqOUz0DYV",
             includeSegs: true,
             strength: strength,
             autoflip: autoflip,
         }),
-    })
+    }
+    return fetch("https://quillbot.p.rapidapi.com/paraphrase", request_header)
         .then((response) => {
             if (response.ok) {
                 return response.json();
