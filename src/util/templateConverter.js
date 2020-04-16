@@ -13,6 +13,13 @@ export const updateView = (json, range) => {
     let start = range.startContainer.parentElement;
     let end = range.endContainer.parentElement.nextElementSibling;
 
+    if (range.startContainer.wholeText === ' ') {
+        start = range.startContainer.nextElementSibling
+    }
+    if (range.endContainer.wholeText === ' ') {
+        end = range.endContainer.nextElementSibling
+    }
+    
     json.forEach((data) => {
         const orig = data.original;
         const pps = data.paraphrases[0];
@@ -21,7 +28,7 @@ export const updateView = (json, range) => {
         for (let i = 0; i < segs.length; i++) {
             const seg = segs[i];
 
-            if (start ) {
+            if (start) {
                 // Check for punctuation
                 if (i < segs.length - 1) {
                     const nextSeg = segs[i + 1].text;
@@ -40,8 +47,7 @@ export const updateView = (json, range) => {
                 } else {
                     start.setAttribute("class", "article-changed");
                 }
-                const origText = start.innerHTML
-                start.innerHTML = `<span class="article-new">${seg.text}${punct}</span><span class="article-original">${origText}</span>`;
+                start.innerHTML = `<span class="article-new">${seg.text}${punct}</span>`;
                 start.alts = seg.alts.map((a) => a.text);
 
                 start = start.nextElementSibling;

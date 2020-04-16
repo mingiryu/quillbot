@@ -1,7 +1,7 @@
 // For dev and testing
 export const _fetchJSON = (payload, strength=1, autoflip=1.0) => {
     return new Promise(function (resolve, reject) {
-        setTimeout(resolve.bind(this, require("./mockData.json")), 3000)
+        setTimeout(resolve.bind(this, require("./mockData.json")), 1500)
     });
 };
 

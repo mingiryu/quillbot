@@ -7,7 +7,7 @@ class ContextProvider extends React.Component {
     state = {
         error: "",
         tooltip: null,
-        slider: { strength: 2, autoflip: 0.5 },
+        slider: { strength: 2, autoflip: 0.3 },
     }
 
     triggerSnack = (value) => {
@@ -22,7 +22,7 @@ class ContextProvider extends React.Component {
         if (Number.isInteger(value) && value >= 1) {
             this.setState({ slider: { ...this.state.slider, strength: value } });
         } else {
-            this.setState({ slider: { ...this.state.slider, autoflip: value.toFixed(1) } });
+            this.setState({ slider: { ...this.state.slider, autoflip: value } });
         }
     }
 

@@ -93,18 +93,12 @@ h6 {
 
 .article-changed {
     color: #0645ad;
-    display: inline-flex;
-    flex-direction: column;
 }
 
 .article-unchanged {
-    display: inline-flex;
-    flex-direction: column;
 }
 
 .article-nooptions {
-    display: inline-flex;
-    flex-direction: column;
 }
 
 .article-original {
@@ -114,7 +108,7 @@ h6 {
 }
 
 .article-new {
-    display: block
+    display: inline
 }
 
 .article-changed:hover {

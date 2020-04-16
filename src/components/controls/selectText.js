@@ -45,10 +45,12 @@ class SelectText extends React.Component {
                 const range = selection.getRangeAt(0)
                 if (range.commonAncestorContainer.tagName && range.commonAncestorContainer.tagName.toLowerCase() === "div") {
                     this.context.triggerSnack("Please select sentences from a single paragraph.")
-                } else if (range.startContainer.parentElement.tagName.toLowerCase() !== "span") {
-                } else if (range.endContainer.parentElement.tagName.toLowerCase() !== "span") {
                 } else {
-                    const rect = range.endContainer.parentElement.getBoundingClientRect()
+                    let end = range.endContainer.parentElement
+                    if (range.endContainer.wholeText === ' ') {
+                        end = range.endContainer.nextElementSibling
+                    }
+                    const rect = end.getBoundingClientRect()
                     this.setState({
                         open: true,
                         top: `${rect.top + window.scrollY}px`,
@@ -73,7 +75,7 @@ class SelectText extends React.Component {
         const range = this.state.range;
         const slider = this.context.slider;
         const payload = getPayload(range);
-
+        console.log(payload)
         fetchJSON(payload, slider.strength, slider.autoflip)
             .then((json) => {
                 if (json) {
