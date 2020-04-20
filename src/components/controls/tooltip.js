@@ -36,7 +36,7 @@ const Tooltip = () => {
                         style={{ ...context.tooltip.rect, position: "absolute" }}
                         title={
                             <React.Fragment>
-                                {context.tooltip.alts.map((alt) => (
+                                {context.tooltip.alts.slice(0,7).map((alt) => (
                                     <span key={alt} style={{ display: "block" }}>
                                         {alt}
                                     </span>
