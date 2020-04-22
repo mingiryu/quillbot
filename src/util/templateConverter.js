@@ -9,6 +9,26 @@ export const convertDocument = () => {
     });
 }
 
+export const getRangeStart = (range) => {
+    let start = range.startContainer.parentElement;
+
+    if (range.startContainer.wholeText === ' ') {
+        start = range.startContainer.nextElementSibling
+    }
+
+    return start
+}
+
+export const getRangeEnd = (range) => {
+    let end = range.endContainer.parentElement.nextElementSibling;
+
+    if (range.endContainer.wholeText === ' ') {
+        end = range.endContainer.nextElementSibling
+    }
+
+    return end
+}
+
 export const createView = (json, range) => {
     let p = document.createElement("p")
     p.setAttribute("class", "article-rephrased")
@@ -46,15 +66,8 @@ export const createView = (json, range) => {
         }
     })
 
-    let start = range.startContainer.parentElement;
-    let end = range.endContainer.parentElement.nextElementSibling;
-
-    if (range.startContainer.wholeText === ' ') {
-        start = range.startContainer.nextElementSibling
-    }
-    if (range.endContainer.wholeText === ' ') {
-        end = range.endContainer.nextElementSibling
-    }
+    let start = getRangeStart(range)
+    let end = getRangeEnd(range)
 
     // highlight processed text.
     while (start !== end && start) {

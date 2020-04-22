@@ -4,7 +4,7 @@ import { Context } from "../context/"
 
 import { getPayload } from "../../util/stringHelper"
 import { _fetchJSON, fetchJSON } from "../../actions/loadData"
-import { createView, convertDocument } from "../../util/templateConverter"
+import { createView, convertDocument, getRangeStart, getRangeEnd } from "../../util/templateConverter"
 import { debounce } from "../../util/eventHelper"
 
 import Tooltip from '@material-ui/core/Tooltip';
@@ -45,10 +45,12 @@ class SelectText extends React.Component {
                 const range = selection.getRangeAt(0)
                 if (range.commonAncestorContainer.tagName && range.commonAncestorContainer.tagName.toLowerCase() === "div") {
                     this.context.triggerSnack("Please select sentences from a single paragraph.")
+                } else if (range.commonAncestorContainer.getAttribute && range.commonAncestorContainer.getAttribute("class") === "article-rephrased") {
+
                 } else {
-                    let end = range.endContainer.parentElement
-                    if (range.endContainer.wholeText === ' ' && range.endContainer.nextElementSibling) {
-                        end = range.endContainer.nextElementSibling
+                    let end = getRangeEnd(range)
+                    if (!end) {
+                        end = range.endContainer.parentElement
                     }
                     const rect = end.getBoundingClientRect()
                     this.setState({

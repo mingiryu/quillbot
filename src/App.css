@@ -92,35 +92,37 @@ h6 {
 }
 
 .article-rephrased {
-    border: 1px solid #eee;
-    border-radius: 1em;
-    padding: 0.5em 1em;
     background: #eee;
-}
-
-.article-changed {
-    color: #0645ad;
-}
-
-.article-unchanged {
-}
-
-.article-nooptions {
+    padding: 0.3em 0.5em;
+    border-radius: 0.5em;
 }
 
 .article-original {
-    background: lightyellow;
+    border-left: 0.3em solid#333;
+}
+
+.article-original ~ .article-original {
+    border-left: none;
+}
+
+.article-original + span:not(.article-original) {
+    border-left: 0.3em solid#333;
+}
+
+.article-original:last-of-type {
+    border-right: 0.3em solid#333;
 }
 
 .article-new {
-    display: inline
+    display: inline-block;
 }
 
-.article-changed:hover {
-    text-decoration: underline solid #0645ad;
+.article-new:hover {
+    background: #ddd;
+    box-shadow: 1px 1px 3px 1px #aaa;
+    border-radius: 2px;
 }
 
-.article-unchanged:hover {
-    color: #0645ad;
-    text-decoration: underline solid #0645ad;
+.article-changed * {
+    text-decoration: dashed underline #333;
 }
